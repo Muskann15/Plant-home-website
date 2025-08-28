@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Plant Shop Color Theme
+   * Modern, nature-inspired palette with earth tones and fresh greens
+   */
+  :root {
+    /* Base colors */
+    --background: 45 100% 99%;
+    --foreground: 160 15% 15%;
+
+    /* Card and surface colors */
+    --card: 45 100% 99%;
+    --card-foreground: 160 15% 15%;
+
+    --popover: 45 100% 99%;
+    --popover-foreground: 160 15% 15%;
+
+    /* Primary - Deep Forest Green */
+    --primary: 160 60% 25%;
+    --primary-foreground: 45 100% 99%;
+
+    /* Secondary - Warm Sand */
+    --secondary: 45 50% 92%;
+    --secondary-foreground: 160 25% 20%;
+
+    /* Muted colors */
+    --muted: 45 30% 95%;
+    --muted-foreground: 160 8% 45%;
+
+    /* Accent - Sage Green */
+    --accent: 120 25% 85%;
+    --accent-foreground: 160 40% 20%;
+
+    /* Destructive - Terracotta Red */
+    --destructive: 15 75% 60%;
+    --destructive-foreground: 45 100% 99%;
+
+    /* Borders and inputs */
+    --border: 120 15% 88%;
+    --input: 120 15% 88%;
+    --ring: 160 60% 25%;
+
+    /* Border radius */
+    --radius: 0.75rem;
+
+    /* Plant-specific color palette */
+
+    /* Sage Green Scale */
+    --sage-50: 120 60% 97%;
+    --sage-100: 120 40% 94%;
+    --sage-200: 120 30% 87%;
+    --sage-300: 120 25% 76%;
+    --sage-400: 120 20% 65%;
+    --sage-500: 120 18% 54%;
+    --sage-600: 120 20% 43%;
+    --sage-700: 120 25% 33%;
+    --sage-800: 120 30% 24%;
+    --sage-900: 120 35% 16%;
+
+    /* Forest Green Scale */
+    --forest-50: 160 80% 96%;
+    --forest-100: 160 70% 90%;
+    --forest-200: 160 60% 80%;
+    --forest-300: 160 50% 65%;
+    --forest-400: 160 45% 50%;
+    --forest-500: 160 60% 35%;
+    --forest-600: 160 70% 25%;
+    --forest-700: 160 75% 20%;
+    --forest-800: 160 80% 15%;
+    --forest-900: 160 85% 10%;
+
+    /* Terracotta Scale */
+    --terracotta-50: 15 100% 96%;
+    --terracotta-100: 15 90% 90%;
+    --terracotta-200: 15 85% 80%;
+    --terracotta-300: 15 80% 70%;
+    --terracotta-400: 15 75% 60%;
+    --terracotta-500: 15 70% 50%;
+    --terracotta-600: 15 65% 40%;
+    --terracotta-700: 15 60% 30%;
+    --terracotta-800: 15 55% 25%;
+    --terracotta-900: 15 50% 20%;
+
+    /* Sand Scale */
+    --sand-50: 45 60% 98%;
+    --sand-100: 45 50% 95%;
+    --sand-200: 45 40% 88%;
+    --sand-300: 45 35% 80%;
+    --sand-400: 45 30% 70%;
+    --sand-500: 45 25% 60%;
+    --sand-600: 45 20% 50%;
+    --sand-700: 45 18% 40%;
+    --sand-800: 45 15% 30%;
+    --sand-900: 45 12% 20%;
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --background: 160 15% 8%;
+    --foreground: 45 50% 95%;
+
+    --card: 160 15% 10%;
+    --card-foreground: 45 50% 95%;
+
+    --popover: 160 15% 10%;
+    --popover-foreground: 45 50% 95%;
+
+    --primary: 120 40% 70%;
+    --primary-foreground: 160 15% 8%;
+
+    --secondary: 160 10% 15%;
+    --secondary-foreground: 45 50% 95%;
+
+    --muted: 160 10% 15%;
+    --muted-foreground: 45 20% 65%;
+
+    --accent: 120 30% 25%;
+    --accent-foreground: 45 50% 95%;
+
+    --destructive: 15 75% 55%;
+    --destructive-foreground: 45 50% 95%;
+
+    --border: 160 10% 18%;
+    --input: 160 10% 18%;
+    --ring: 120 40% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background outline-none;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sage-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-sage-500;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-sage-200 text-sage-900;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary/20;
+  }
+
+  .btn-sage {
+    @apply bg-sage-500 text-white hover:bg-sage-600 focus:ring-sage-200;
+  }
+
+  .btn-terracotta {
+    @apply bg-terracotta-500 text-white hover:bg-terracotta-600 focus:ring-terracotta-200;
+  }
+
+  /* Card styles */
+  .card-elevated {
+    @apply bg-card border border-border rounded-xl shadow-soft;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-forest-600 via-sage-500 to-forest-600 bg-clip-text text-transparent;
+  }
+
+  /* Container variants */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Aspect ratio utilities */
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-3-4 {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Safe area for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Ensure back button doesn't overlap with content */
+  .back-button-space {
+    padding-top: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .back-button-space {
+      padding-top: 0;
+    }
+  }
+}
